@@ -1,0 +1,33 @@
+name: Deploy Foundry Docs to GitHub Pages
+
+on:
+  push:
+    branches: [main]  # Триггер на пуши в main ветку
+    paths: ['src/**', 'script/**', 'foundry.toml']  # Только если изменились контракты или конфиг
+
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Необходимо для публикации на GitHub Pages
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly  # Используем nightly для последней версии forge doc
+
+      - name: Generate documentation
+        run: |
+          forge doc --build
+          mv docs/book public  # GitHub Pages ожидает файлы в папке public
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          keep_files: true  # Сохраняет историю публикаций
