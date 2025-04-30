@@ -3,6 +3,7 @@ pragma solidity ^0.8.29;
 
 /**
  * @title ZK-KYC Verification Interface
+ * @author Grigory Morgachev
  * @notice Определяет стандарт для децентрализованной KYC-верификации с использованием zk-SNARKs
  * @dev Все функции должны быть реализованы в основном контракте
  */
