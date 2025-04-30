@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title></title>
-        <meta name="robots" content="noindex">
+        <title>IZkKYC</title>
 
 
         <!-- Custom HTML head -->
@@ -13,36 +12,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="book.css">
+        <link rel="stylesheet" href="../../../book.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="../../../toc.js"></script>
     </head>
     <body>
     <div id="body-container">
@@ -95,7 +94,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
             </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -130,7 +129,7 @@
                     <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         <a href="https://github.com/Hashtag-team/zkKYC-contracts" title="Git repository" aria-label="Git repository">
@@ -162,53 +161,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="foundry"><a class="header" href="#foundry">Foundry</a></h2>
-<p><strong>Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.</strong></p>
-<p>Foundry consists of:</p>
-<ul>
-<li><strong>Forge</strong>: Ethereum testing framework (like Truffle, Hardhat and DappTools).</li>
-<li><strong>Cast</strong>: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.</li>
-<li><strong>Anvil</strong>: Local Ethereum node, akin to Ganache, Hardhat Network.</li>
-<li><strong>Chisel</strong>: Fast, utilitarian, and verbose solidity REPL.</li>
-</ul>
-<h2 id="documentation"><a class="header" href="#documentation">Documentation</a></h2>
-<p>https://book.getfoundry.sh/</p>
-<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
-<h3 id="build"><a class="header" href="#build">Build</a></h3>
-<pre><code class="language-shell">$ forge build
-</code></pre>
-<h3 id="test"><a class="header" href="#test">Test</a></h3>
-<pre><code class="language-shell">$ forge test
-</code></pre>
-<h3 id="format"><a class="header" href="#format">Format</a></h3>
-<pre><code class="language-shell">$ forge fmt
-</code></pre>
-<h3 id="gas-snapshots"><a class="header" href="#gas-snapshots">Gas Snapshots</a></h3>
-<pre><code class="language-shell">$ forge snapshot
-</code></pre>
-<h3 id="semgrep"><a class="header" href="#semgrep">Semgrep</a></h3>
-<pre><code class="language-powershell">$ semgrep --config "p/smart-contracts" src/
-</code></pre>
-<h3 id="anvil"><a class="header" href="#anvil">Anvil</a></h3>
-<pre><code class="language-shell">$ anvil
-</code></pre>
-<h3 id="deploy"><a class="header" href="#deploy">Deploy</a></h3>
-<pre><code class="language-shell">$ forge script script/Counter.s.sol:CounterScript --rpc-url &lt;your_rpc_url&gt; --private-key &lt;your_private_key&gt;
-</code></pre>
-<h3 id="cast"><a class="header" href="#cast">Cast</a></h3>
-<pre><code class="language-shell">$ cast &lt;subcommand&gt;
-</code></pre>
-<h3 id="help"><a class="header" href="#help">Help</a></h3>
-<pre><code class="language-shell">$ forge --help
-$ anvil --help
-$ cast --help
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="contents"><a class="header" href="#contents">Contents</a></h1>
-<ul>
-<li><a href="src/zkKYC/IZkKYC.sol/interface.IZkKYC.html">IZkKYC</a></li>
-<li><a href="src/zkKYC/zkKYC.sol/contract.ZkKYC.html">ZkKYC</a></li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="izkkyc"><a class="header" href="#izkkyc">IZkKYC</a></h1>
+                        <h1 id="izkkyc"><a class="header" href="#izkkyc">IZkKYC</a></h1>
 <p><a href="https://github.com/Hashtag-team/zkKYC-contracts/blob/7f489cc68108b0b642599c053b7951832947389c/src/zkKYC/IZkKYC.sol">Git Source</a></p>
 <p><strong>Author:</strong>
 Grigory Morgachev</p>
@@ -275,98 +228,18 @@ Grigory Morgachev</p>
 <tr><td><code>user</code></td><td><code>address</code></td><td>Адрес пользователя</td></tr>
 <tr><td><code>reason</code></td><td><code>uint8</code></td><td>Причина отзыва (1 = подозрительная активность, 2 = истечение срока)</td></tr>
 </tbody></table>
-</div><div style="break-before: page; page-break-before: always;"></div><h1 id="zkkyc"><a class="header" href="#zkkyc">ZkKYC</a></h1>
-<p><a href="https://github.com/Hashtag-team/zkKYC-contracts/blob/7f489cc68108b0b642599c053b7951832947389c/src/zkKYC/zkKYC.sol">Git Source</a></p>
-<p><strong>Inherits:</strong>
-ERC721, <a href="src/zkKYC/zkKYC.sol//src/zkKYC/IZkKYC.sol/interface.IZkKYC.html">IZkKYC</a></p>
-<p>Soulbound NFT для KYC-верификации с zk-SNARKs</p>
-<p><em>Наследует ERC721 с модификациями для Soulbound токенов</em></p>
-<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
-<h3 id="regulator"><a class="header" href="#regulator">regulator</a></h3>
-<pre><code class="language-solidity">address public immutable regulator;
-</code></pre>
-<h3 id="_tokenidcounter"><a class="header" href="#_tokenidcounter">_tokenIdCounter</a></h3>
-<pre><code class="language-solidity">uint256 private _tokenIdCounter;
-</code></pre>
-<h3 id="usertotokenid"><a class="header" href="#usertotokenid">userToTokenId</a></h3>
-<pre><code class="language-solidity">mapping(address =&gt; uint256) public userToTokenId;
-</code></pre>
-<h3 id="tokendata"><a class="header" href="#tokendata">tokenData</a></h3>
-<pre><code class="language-solidity">mapping(uint256 =&gt; KYCRecord) public tokenData;
-</code></pre>
-<h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
-<h3 id="onlyregulator"><a class="header" href="#onlyregulator">onlyRegulator</a></h3>
-<pre><code class="language-solidity">modifier onlyRegulator();
-</code></pre>
-<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
-<pre><code class="language-solidity">constructor(address _regulator) ERC721("zkKYC", "zkKYC");
-</code></pre>
-<h3 id="verifykyc-1"><a class="header" href="#verifykyc-1">verifyKYC</a></h3>
-<p>Верификация пользователя через zk-пруф</p>
-<p><em>Только регулятор может вызывать</em></p>
-<pre><code class="language-solidity">function verifyKYC(address user, bytes calldata ageProof, bytes calldata countryProof, bytes calldata additionalData)
-    external
-    onlyRegulator;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>user</code></td><td><code>address</code></td><td>Адрес пользователя</td></tr>
-<tr><td><code>ageProof</code></td><td><code>bytes</code></td><td>zk-пруф возраста (&gt;=18)</td></tr>
-<tr><td><code>countryProof</code></td><td><code>bytes</code></td><td>zk-пруф гражданства</td></tr>
-<tr><td><code>additionalData</code></td><td><code>bytes</code></td><td>Дополнительные данные (пол, судимость)</td></tr>
-</tbody></table>
 </div>
-<h3 id="revokekyc-1"><a class="header" href="#revokekyc-1">revokeKYC</a></h3>
-<p>Отзыв KYC-статуса</p>
-<p><em>Только регулятор может вызывать</em></p>
-<pre><code class="language-solidity">function revokeKYC(address user, uint8 reason) external onlyRegulator;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>user</code></td><td><code>address</code></td><td>Адрес пользователя</td></tr>
-<tr><td><code>reason</code></td><td><code>uint8</code></td><td>Код причины (1-255)</td></tr>
-</tbody></table>
-</div>
-<h3 id="checkkyc-1"><a class="header" href="#checkkyc-1">checkKYC</a></h3>
-<p>Проверка KYC-статуса</p>
-<pre><code class="language-solidity">function checkKYC(address user) external view returns (bool isValid, bytes2 countryCode);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>user</code></td><td><code>address</code></td><td>Адрес пользователя</td></tr>
-</tbody></table>
-</div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>isValid</code></td><td><code>bool</code></td><td>Актуален ли KYC</td></tr>
-<tr><td><code>countryCode</code></td><td><code>bytes2</code></td><td>Код страны</td></tr>
-</tbody></table>
-</div>
-<h3 id="_update"><a class="header" href="#_update">_update</a></h3>
-<pre><code class="language-solidity">function _update(address to, uint256 tokenId, address auth) internal override returns (address);
-</code></pre>
-<h3 id="_verifyproofs"><a class="header" href="#_verifyproofs">_verifyProofs</a></h3>
-<pre><code class="language-solidity">function _verifyProofs(bytes calldata ageProof, bytes calldata countryProof) private pure;
-</code></pre>
-<h3 id="_decodeadditionaldata"><a class="header" href="#_decodeadditionaldata">_decodeAdditionalData</a></h3>
-<pre><code class="language-solidity">function _decodeAdditionalData(bytes calldata data) private pure returns (bytes2, uint8, bool);
-</code></pre>
-<h2 id="structs"><a class="header" href="#structs">Structs</a></h2>
-<h3 id="kycrecord"><a class="header" href="#kycrecord">KYCRecord</a></h3>
-<pre><code class="language-solidity">struct KYCRecord {
-    bytes2 countryCode;
-    uint8 gender;
-    bool isCleanCriminalRecord;
-    uint256 verifiedAt;
-    bool isValid;
-}
-</code></pre>
-
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../src/zkKYC/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next prefetch" href="../../../src/zkKYC/zkKYC.sol/contract.ZkKYC.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -374,7 +247,13 @@ ERC721, <a href="src/zkKYC/zkKYC.sol//src/zkKYC/IZkKYC.sol/interface.IZkKYC.html
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../src/zkKYC/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next prefetch" href="../../../src/zkKYC/zkKYC.sol/contract.ZkKYC.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -387,24 +266,17 @@ ERC721, <a href="src/zkKYC/zkKYC.sol//src/zkKYC/IZkKYC.sol/interface.IZkKYC.html
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="solidity.min.js"></script>
+        <script src="../../../solidity.min.js"></script>
 
-        <script>
-        window.addEventListener('load', function() {
-            MathJax.Hub.Register.StartupHook('End', function() {
-                window.setTimeout(window.print, 100);
-            });
-        });
-        </script>
 
     </div>
     </body>
