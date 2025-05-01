@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title></title>
-        <meta name="robots" content="noindex">
+        <title>IDIDIdentitySystem</title>
 
 
         <!-- Custom HTML head -->
@@ -13,36 +12,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../../../favicon.svg">
+        <link rel="shortcut icon" href="../../../favicon.png">
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="book.css">
+        <link rel="stylesheet" href="../../../book.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="../../../toc.js"></script>
     </head>
     <body>
     <div id="body-container">
@@ -95,7 +94,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../../toc.html"></iframe>
             </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -130,7 +129,7 @@
                     <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                         <a href="https://github.com/Hashtag-team/zkKYC-contracts" title="Git repository" aria-label="Git repository">
@@ -162,328 +161,12 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="foundry"><a class="header" href="#foundry">Foundry</a></h2>
-<p><strong>Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.</strong></p>
-<p>Foundry consists of:</p>
-<ul>
-<li><strong>Forge</strong>: Ethereum testing framework (like Truffle, Hardhat and DappTools).</li>
-<li><strong>Cast</strong>: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.</li>
-<li><strong>Anvil</strong>: Local Ethereum node, akin to Ganache, Hardhat Network.</li>
-<li><strong>Chisel</strong>: Fast, utilitarian, and verbose solidity REPL.</li>
-</ul>
-<h2 id="documentation"><a class="header" href="#documentation">Documentation</a></h2>
-<p>https://book.getfoundry.sh/</p>
-<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
-<h3 id="build"><a class="header" href="#build">Build</a></h3>
-<pre><code class="language-shell">$ forge build
-</code></pre>
-<h3 id="test"><a class="header" href="#test">Test</a></h3>
-<pre><code class="language-shell">$ forge test
-</code></pre>
-<h3 id="format"><a class="header" href="#format">Format</a></h3>
-<pre><code class="language-shell">$ forge fmt
-</code></pre>
-<h3 id="gas-snapshots"><a class="header" href="#gas-snapshots">Gas Snapshots</a></h3>
-<pre><code class="language-shell">$ forge snapshot
-</code></pre>
-<h3 id="semgrep"><a class="header" href="#semgrep">Semgrep</a></h3>
-<pre><code class="language-powershell">$ semgrep --config "p/smart-contracts" src/
-</code></pre>
-<h3 id="anvil"><a class="header" href="#anvil">Anvil</a></h3>
-<pre><code class="language-shell">$ anvil
-</code></pre>
-<h3 id="deploy"><a class="header" href="#deploy">Deploy</a></h3>
-<pre><code class="language-shell">$ forge script script/Counter.s.sol:CounterScript --rpc-url &lt;your_rpc_url&gt; --private-key &lt;your_private_key&gt;
-</code></pre>
-<h3 id="cast"><a class="header" href="#cast">Cast</a></h3>
-<pre><code class="language-shell">$ cast &lt;subcommand&gt;
-</code></pre>
-<h3 id="help"><a class="header" href="#help">Help</a></h3>
-<pre><code class="language-shell">$ forge --help
-$ anvil --help
-$ cast --help
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="contents"><a class="header" href="#contents">Contents</a></h1>
-<ul>
-<li><a href="src/DIDIdentitySystem/DIDIdentitySystem.sol/contract.DIDIdentitySystem.html">DIDIdentitySystem</a></li>
-<li><a href="src/DIDIdentitySystem/IDIDIdentitySystem.sol/interface.IDIDIdentitySystem.html">IDIDIdentitySystem</a></li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="dididentitysystem"><a class="header" href="#dididentitysystem">DIDIdentitySystem</a></h1>
-<p><a href="https://github.com/Hashtag-team/zkKYC-contracts/blob/d6222bd39bc089c77063f9e1516f2d570eaed057/src/DIDIdentitySystem/DIDIdentitySystem.sol">Git Source</a></p>
-<p><strong>Inherits:</strong>
-<a href="src/DIDIdentitySystem/DIDIdentitySystem.sol//src/DIDIdentitySystem/IDIDIdentitySystem.sol/interface.IDIDIdentitySystem.html">IDIDIdentitySystem</a>, ERC721URIStorage, AccessControl</p>
-<p><em>Реализация системы Self-Sovereign Identity с использованием Decentralized ID (DID)
-Поддерживает требования по конфиденциальности персональных данных и взаимодействию между
-пользователями, бизнесами и регуляторами.</em></p>
-<h2 id="state-variables"><a class="header" href="#state-variables">State Variables</a></h2>
-<h3 id="regulator_role"><a class="header" href="#regulator_role">REGULATOR_ROLE</a></h3>
-<pre><code class="language-solidity">bytes32 public constant REGULATOR_ROLE = keccak256("REGULATOR_ROLE");
-</code></pre>
-<h3 id="business_role"><a class="header" href="#business_role">BUSINESS_ROLE</a></h3>
-<pre><code class="language-solidity">bytes32 public constant BUSINESS_ROLE = keccak256("BUSINESS_ROLE");
-</code></pre>
-<h3 id="verifier_role"><a class="header" href="#verifier_role">VERIFIER_ROLE</a></h3>
-<pre><code class="language-solidity">bytes32 public constant VERIFIER_ROLE = keccak256("VERIFIER_ROLE");
-</code></pre>
-<h3 id="_claimids"><a class="header" href="#_claimids">_claimIds</a></h3>
-<pre><code class="language-solidity">uint256 private _claimIds;
-</code></pre>
-<h3 id="_tokenids"><a class="header" href="#_tokenids">_tokenIds</a></h3>
-<pre><code class="language-solidity">uint256 private _tokenIds;
-</code></pre>
-<h3 id="_reportids"><a class="header" href="#_reportids">_reportIds</a></h3>
-<pre><code class="language-solidity">uint256 private _reportIds;
-</code></pre>
-<h3 id="_diddocuments"><a class="header" href="#_diddocuments">_didDocuments</a></h3>
-<pre><code class="language-solidity">mapping(string =&gt; DIDDocument) private _didDocuments;
-</code></pre>
-<h3 id="_addresstodid"><a class="header" href="#_addresstodid">_addressToDID</a></h3>
-<pre><code class="language-solidity">mapping(address =&gt; string) private _addressToDID;
-</code></pre>
-<h3 id="_reports"><a class="header" href="#_reports">_reports</a></h3>
-<pre><code class="language-solidity">mapping(uint256 =&gt; SuspiciousActivityReport) private _reports;
-</code></pre>
-<h3 id="_zkverifications"><a class="header" href="#_zkverifications">_zkVerifications</a></h3>
-<pre><code class="language-solidity">mapping(bytes32 =&gt; bool) private _zkVerifications;
-</code></pre>
-<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
-<h3 id="constructor"><a class="header" href="#constructor">constructor</a></h3>
-<pre><code class="language-solidity">constructor() payable ERC721("Decentralized Identity", "DID");
-</code></pre>
-<h3 id="createdid"><a class="header" href="#createdid">createDID</a></h3>
-<p>Создание нового DID для пользователя</p>
-<pre><code class="language-solidity">function createDID(string memory didString) public returns (bool);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>didString</code></td><td><code>string</code></td><td>Строка DID (соответствует стандарту W3C DID)</td></tr>
-</tbody></table>
-</div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>Успешность операции</td></tr>
-</tbody></table>
-</div>
-<h3 id="addverifiableclaim"><a class="header" href="#addverifiableclaim">addVerifiableClaim</a></h3>
-<p>Добавление верифицированного заявления</p>
-<pre><code class="language-solidity">function addVerifiableClaim(
-    string memory did,
-    string memory claimType,
-    string memory claimValue,
-    bytes memory proofValue,
-    uint256 expirationDate
-) public onlyRole(VERIFIER_ROLE) returns (uint256);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>did</code></td><td><code>string</code></td><td>DID пользователя</td></tr>
-<tr><td><code>claimType</code></td><td><code>string</code></td><td>Тип заявления</td></tr>
-<tr><td><code>claimValue</code></td><td><code>string</code></td><td>Зашифрованное значение</td></tr>
-<tr><td><code>proofValue</code></td><td><code>bytes</code></td><td>Доказательство для регулятора</td></tr>
-<tr><td><code>expirationDate</code></td><td><code>uint256</code></td><td>Срок действия</td></tr>
-</tbody></table>
-</div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>ID созданного заявления</td></tr>
-</tbody></table>
-</div>
-<h3 id="revokeverifiableclaim"><a class="header" href="#revokeverifiableclaim">revokeVerifiableClaim</a></h3>
-<p>Отзыв верифицированного заявления</p>
-<pre><code class="language-solidity">function revokeVerifiableClaim(string memory did, uint256 claimId) public;
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>did</code></td><td><code>string</code></td><td>DID пользователя</td></tr>
-<tr><td><code>claimId</code></td><td><code>uint256</code></td><td>ID заявления</td></tr>
-</tbody></table>
-</div>
-<h3 id="hasvalidclaim"><a class="header" href="#hasvalidclaim">hasValidClaim</a></h3>
-<p>Проверка валидности заявления</p>
-<pre><code class="language-solidity">function hasValidClaim(string memory did, string memory claimType) public view returns (bool);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>did</code></td><td><code>string</code></td><td>DID пользователя</td></tr>
-<tr><td><code>claimType</code></td><td><code>string</code></td><td>Тип заявления</td></tr>
-</tbody></table>
-</div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>Наличие валидного заявления</td></tr>
-</tbody></table>
-</div>
-<h3 id="verifyzkp"><a class="header" href="#verifyzkp">verifyZKP</a></h3>
-<p>Верификация ZK-доказательства</p>
-<pre><code class="language-solidity">function verifyZKP(string memory did, string memory claimType, bytes memory zkProof)
-    public
-    onlyRole(BUSINESS_ROLE)
-    returns (bool);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>did</code></td><td><code>string</code></td><td>DID пользователя</td></tr>
-<tr><td><code>claimType</code></td><td><code>string</code></td><td>Тип заявления</td></tr>
-<tr><td><code>zkProof</code></td><td><code>bytes</code></td><td>ZK-доказательство</td></tr>
-</tbody></table>
-</div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>Результат верификации</td></tr>
-</tbody></table>
-</div>
-<h3 id="filereport"><a class="header" href="#filereport">fileReport</a></h3>
-<p>Создание отчета о подозрительной активности</p>
-<pre><code class="language-solidity">function fileReport(string memory didSubject, string memory reportType, string memory encryptedDetails)
-    public
-    onlyRole(BUSINESS_ROLE)
-    returns (uint256);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>didSubject</code></td><td><code>string</code></td><td>DID подозреваемого</td></tr>
-<tr><td><code>reportType</code></td><td><code>string</code></td><td>Тип отчета</td></tr>
-<tr><td><code>encryptedDetails</code></td><td><code>string</code></td><td>Зашифрованные детали</td></tr>
-</tbody></table>
-</div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>ID созданного отчета</td></tr>
-</tbody></table>
-</div>
-<h3 id="resolvereport"><a class="header" href="#resolvereport">resolveReport</a></h3>
-<p>Разрешение отчета регулятором</p>
-<pre><code class="language-solidity">function resolveReport(uint256 reportId, bool isResolved) public onlyRole(REGULATOR_ROLE);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>reportId</code></td><td><code>uint256</code></td><td>ID отчета</td></tr>
-<tr><td><code>isResolved</code></td><td><code>bool</code></td><td>Статус разрешения</td></tr>
-</tbody></table>
-</div>
-<h3 id="getproofforregulator"><a class="header" href="#getproofforregulator">getProofForRegulator</a></h3>
-<p>Получение DID по адресу пользователя</p>
-<pre><code class="language-solidity">function getProofForRegulator(string memory did, uint256 claimId)
-    public
-    view
-    onlyRole(REGULATOR_ROLE)
-    returns (bytes memory);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>did</code></td><td><code>string</code></td><td>DID пользователя</td></tr>
-<tr><td><code>claimId</code></td><td><code>uint256</code></td><td>ID NFT юзера</td></tr>
-</tbody></table>
-</div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>bytes</code></td><td>proofValue Значение для запрашиваемого пруфа</td></tr>
-</tbody></table>
-</div>
-<h3 id="getreportdetails"><a class="header" href="#getreportdetails">getReportDetails</a></h3>
-<p>Получение деталей отчета (только для регулятора)</p>
-<pre><code class="language-solidity">function getReportDetails(uint256 reportId)
-    public
-    view
-    onlyRole(REGULATOR_ROLE)
-    returns (
-        string memory didSubject,
-        address reportingBusiness,
-        string memory reportType,
-        string memory encryptedDetails,
-        uint256 timestamp,
-        bool isResolved
-    );
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>reportId</code></td><td><code>uint256</code></td><td>ID отчета</td></tr>
-</tbody></table>
-</div>
-<h3 id="addregulator"><a class="header" href="#addregulator">addRegulator</a></h3>
-<p>Добавление регулятора</p>
-<pre><code class="language-solidity">function addRegulator(address regulator) public onlyRole(DEFAULT_ADMIN_ROLE);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>regulator</code></td><td><code>address</code></td><td>Адрес регулятора</td></tr>
-</tbody></table>
-</div>
-<h3 id="addbusiness"><a class="header" href="#addbusiness">addBusiness</a></h3>
-<p>Добавление бизнеса</p>
-<pre><code class="language-solidity">function addBusiness(address business) public onlyRole(DEFAULT_ADMIN_ROLE);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>business</code></td><td><code>address</code></td><td>Адрес бизнеса</td></tr>
-</tbody></table>
-</div>
-<h3 id="addverifier"><a class="header" href="#addverifier">addVerifier</a></h3>
-<p>Добавление верификатора</p>
-<pre><code class="language-solidity">function addVerifier(address verifier) public onlyRole(DEFAULT_ADMIN_ROLE);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>verifier</code></td><td><code>address</code></td><td>Адрес верификатора</td></tr>
-</tbody></table>
-</div>
-<h3 id="_generatetokenuri"><a class="header" href="#_generatetokenuri">_generateTokenURI</a></h3>
-<pre><code class="language-solidity">function _generateTokenURI(string memory did, uint256 tokenId) private pure returns (string memory);
-</code></pre>
-<h3 id="getdidbyaddress"><a class="header" href="#getdidbyaddress">getDIDByAddress</a></h3>
-<p>Получение DID по адресу пользователя</p>
-<pre><code class="language-solidity">function getDIDByAddress(address addr) public view returns (string memory);
-</code></pre>
-<p><strong>Parameters</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>addr</code></td><td><code>address</code></td><td>Адрес пользователя</td></tr>
-</tbody></table>
-</div>
-<p><strong>Returns</strong></p>
-<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Type</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>&lt;none&gt;</code></td><td><code>string</code></td><td>DID пользователя</td></tr>
-</tbody></table>
-</div>
-<h3 id="supportsinterface"><a class="header" href="#supportsinterface">supportsInterface</a></h3>
-<pre><code class="language-solidity">function supportsInterface(bytes4 interfaceId) public view override(ERC721URIStorage, AccessControl) returns (bool);
-</code></pre>
-<h2 id="structs"><a class="header" href="#structs">Structs</a></h2>
-<h3 id="diddocument"><a class="header" href="#diddocument">DIDDocument</a></h3>
-<pre><code class="language-solidity">struct DIDDocument {
-    string did;
-    bool isActive;
-    mapping(uint256 =&gt; VerifiableClaim) claims;
-    uint256[] claimIds;
-}
-</code></pre>
-<h3 id="verifiableclaim"><a class="header" href="#verifiableclaim">VerifiableClaim</a></h3>
-<pre><code class="language-solidity">struct VerifiableClaim {
-    uint256 id;
-    string claimType;
-    string claimValue;
-    bool isValid;
-    address verifier;
-    bytes proofValue;
-    uint256 expirationDate;
-}
-</code></pre>
-<h3 id="suspiciousactivityreport"><a class="header" href="#suspiciousactivityreport">SuspiciousActivityReport</a></h3>
-<pre><code class="language-solidity">struct SuspiciousActivityReport {
-    uint256 id;
-    string didSubject;
-    address reportingBusiness;
-    string reportType;
-    string encryptedDetails;
-    uint256 timestamp;
-    bool isResolved;
-}
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="idididentitysystem"><a class="header" href="#idididentitysystem">IDIDIdentitySystem</a></h1>
+                        <h1 id="idididentitysystem"><a class="header" href="#idididentitysystem">IDIDIdentitySystem</a></h1>
 <p><a href="https://github.com/Hashtag-team/zkKYC-contracts/blob/d6222bd39bc089c77063f9e1516f2d570eaed057/src/DIDIdentitySystem/IDIDIdentitySystem.sol">Git Source</a></p>
 <p>Определяет стандарт для системы Self-Sovereign Identity с DID</p>
 <p><em>Все функции должны быть реализованы в основном контракте</em></p>
-<h2 id="functions-1"><a class="header" href="#functions-1">Functions</a></h2>
-<h3 id="createdid-1"><a class="header" href="#createdid-1">createDID</a></h3>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<h3 id="createdid"><a class="header" href="#createdid">createDID</a></h3>
 <p>Создание нового DID для пользователя</p>
 <pre><code class="language-solidity">function createDID(string memory didString) external returns (bool);
 </code></pre>
@@ -497,7 +180,7 @@ $ cast --help
 <tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>Успешность операции</td></tr>
 </tbody></table>
 </div>
-<h3 id="getdidbyaddress-1"><a class="header" href="#getdidbyaddress-1">getDIDByAddress</a></h3>
+<h3 id="getdidbyaddress"><a class="header" href="#getdidbyaddress">getDIDByAddress</a></h3>
 <p>Получение DID по адресу пользователя</p>
 <pre><code class="language-solidity">function getDIDByAddress(address addr) external view returns (string memory);
 </code></pre>
@@ -511,7 +194,7 @@ $ cast --help
 <tr><td><code>&lt;none&gt;</code></td><td><code>string</code></td><td>DID пользователя</td></tr>
 </tbody></table>
 </div>
-<h3 id="getproofforregulator-1"><a class="header" href="#getproofforregulator-1">getProofForRegulator</a></h3>
+<h3 id="getproofforregulator"><a class="header" href="#getproofforregulator">getProofForRegulator</a></h3>
 <p>Получение DID по адресу пользователя</p>
 <pre><code class="language-solidity">function getProofForRegulator(string memory did, uint256 claimId) external view returns (bytes memory);
 </code></pre>
@@ -526,7 +209,7 @@ $ cast --help
 <tr><td><code>&lt;none&gt;</code></td><td><code>bytes</code></td><td>proofValue Значение для запрашиваемого пруфа</td></tr>
 </tbody></table>
 </div>
-<h3 id="addverifiableclaim-1"><a class="header" href="#addverifiableclaim-1">addVerifiableClaim</a></h3>
+<h3 id="addverifiableclaim"><a class="header" href="#addverifiableclaim">addVerifiableClaim</a></h3>
 <p>Добавление верифицированного заявления</p>
 <pre><code class="language-solidity">function addVerifiableClaim(
     string memory did,
@@ -550,7 +233,7 @@ $ cast --help
 <tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>ID созданного заявления</td></tr>
 </tbody></table>
 </div>
-<h3 id="revokeverifiableclaim-1"><a class="header" href="#revokeverifiableclaim-1">revokeVerifiableClaim</a></h3>
+<h3 id="revokeverifiableclaim"><a class="header" href="#revokeverifiableclaim">revokeVerifiableClaim</a></h3>
 <p>Отзыв верифицированного заявления</p>
 <pre><code class="language-solidity">function revokeVerifiableClaim(string memory did, uint256 claimId) external;
 </code></pre>
@@ -560,7 +243,7 @@ $ cast --help
 <tr><td><code>claimId</code></td><td><code>uint256</code></td><td>ID заявления</td></tr>
 </tbody></table>
 </div>
-<h3 id="hasvalidclaim-1"><a class="header" href="#hasvalidclaim-1">hasValidClaim</a></h3>
+<h3 id="hasvalidclaim"><a class="header" href="#hasvalidclaim">hasValidClaim</a></h3>
 <p>Проверка валидности заявления</p>
 <pre><code class="language-solidity">function hasValidClaim(string memory did, string memory claimType) external view returns (bool);
 </code></pre>
@@ -575,7 +258,7 @@ $ cast --help
 <tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>Наличие валидного заявления</td></tr>
 </tbody></table>
 </div>
-<h3 id="verifyzkp-1"><a class="header" href="#verifyzkp-1">verifyZKP</a></h3>
+<h3 id="verifyzkp"><a class="header" href="#verifyzkp">verifyZKP</a></h3>
 <p>Верификация ZK-доказательства</p>
 <pre><code class="language-solidity">function verifyZKP(string memory did, string memory claimType, bytes memory zkProof) external returns (bool);
 </code></pre>
@@ -591,7 +274,7 @@ $ cast --help
 <tr><td><code>&lt;none&gt;</code></td><td><code>bool</code></td><td>Результат верификации</td></tr>
 </tbody></table>
 </div>
-<h3 id="filereport-1"><a class="header" href="#filereport-1">fileReport</a></h3>
+<h3 id="filereport"><a class="header" href="#filereport">fileReport</a></h3>
 <p>Создание отчета о подозрительной активности</p>
 <pre><code class="language-solidity">function fileReport(string memory didSubject, string memory reportType, string memory encryptedDetails)
     external
@@ -609,7 +292,7 @@ $ cast --help
 <tr><td><code>&lt;none&gt;</code></td><td><code>uint256</code></td><td>ID созданного отчета</td></tr>
 </tbody></table>
 </div>
-<h3 id="resolvereport-1"><a class="header" href="#resolvereport-1">resolveReport</a></h3>
+<h3 id="resolvereport"><a class="header" href="#resolvereport">resolveReport</a></h3>
 <p>Разрешение отчета регулятором</p>
 <pre><code class="language-solidity">function resolveReport(uint256 reportId, bool isResolved) external;
 </code></pre>
@@ -619,7 +302,7 @@ $ cast --help
 <tr><td><code>isResolved</code></td><td><code>bool</code></td><td>Статус разрешения</td></tr>
 </tbody></table>
 </div>
-<h3 id="getreportdetails-1"><a class="header" href="#getreportdetails-1">getReportDetails</a></h3>
+<h3 id="getreportdetails"><a class="header" href="#getreportdetails">getReportDetails</a></h3>
 <p>Получение деталей отчета (только для регулятора)</p>
 <pre><code class="language-solidity">function getReportDetails(uint256 reportId)
     external
@@ -638,7 +321,7 @@ $ cast --help
 <tr><td><code>reportId</code></td><td><code>uint256</code></td><td>ID отчета</td></tr>
 </tbody></table>
 </div>
-<h3 id="addregulator-1"><a class="header" href="#addregulator-1">addRegulator</a></h3>
+<h3 id="addregulator"><a class="header" href="#addregulator">addRegulator</a></h3>
 <p>Добавление регулятора</p>
 <pre><code class="language-solidity">function addRegulator(address regulator) external;
 </code></pre>
@@ -647,7 +330,7 @@ $ cast --help
 <tr><td><code>regulator</code></td><td><code>address</code></td><td>Адрес регулятора</td></tr>
 </tbody></table>
 </div>
-<h3 id="addbusiness-1"><a class="header" href="#addbusiness-1">addBusiness</a></h3>
+<h3 id="addbusiness"><a class="header" href="#addbusiness">addBusiness</a></h3>
 <p>Добавление бизнеса</p>
 <pre><code class="language-solidity">function addBusiness(address business) external;
 </code></pre>
@@ -656,7 +339,7 @@ $ cast --help
 <tr><td><code>business</code></td><td><code>address</code></td><td>Адрес бизнеса</td></tr>
 </tbody></table>
 </div>
-<h3 id="addverifier-1"><a class="header" href="#addverifier-1">addVerifier</a></h3>
+<h3 id="addverifier"><a class="header" href="#addverifier">addVerifier</a></h3>
 <p>Добавление верификатора</p>
 <pre><code class="language-solidity">function addVerifier(address verifier) external;
 </code></pre>
@@ -774,6 +457,9 @@ $ cast --help
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../../src/DIDIdentitySystem/DIDIdentitySystem.sol/contract.DIDIdentitySystem.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
 
                         <div style="clear: both"></div>
@@ -782,6 +468,9 @@ $ cast --help
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../../src/DIDIdentitySystem/DIDIdentitySystem.sol/contract.DIDIdentitySystem.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
             </nav>
 
@@ -795,24 +484,17 @@ $ cast --help
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../../../elasticlunr.min.js"></script>
+        <script src="../../../mark.min.js"></script>
+        <script src="../../../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../../../clipboard.min.js"></script>
+        <script src="../../../highlight.js"></script>
+        <script src="../../../book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="solidity.min.js"></script>
+        <script src="../../../solidity.min.js"></script>
 
-        <script>
-        window.addEventListener('load', function() {
-            MathJax.Hub.Register.StartupHook('End', function() {
-                window.setTimeout(window.print, 100);
-            });
-        });
-        </script>
 
     </div>
     </body>
