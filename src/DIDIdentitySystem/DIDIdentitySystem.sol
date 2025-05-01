@@ -7,6 +7,7 @@ import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/
 import {Counters} from "@openzeppelin/contracts/utils/Counters.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
+import "./IDIDIdentitySystem.sol";
 
 /**
  * @title DIDIdentitySystem
@@ -14,7 +15,7 @@ import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
  * Поддерживает требования по конфиденциальности персональных данных и взаимодействию между
  * пользователями, бизнесами и регуляторами.
  */
-contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
+contract DIDIdentitySystem is IDIDIdentitySystem, ERC721URIStorage, AccessControl {
     using Counters for Counters.Counter;
     using Strings for uint256;
 
@@ -69,28 +70,12 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
     // Временное хранение заявлений для поддержки ZKP (Zero-Knowledge Proofs)
     mapping(bytes32 => bool) private _zkVerifications;
     
-    // События
-    event DIDCreated(string did, address owner);
-    event ClaimIssued(string did, uint256 claimId, string claimType);
-    event ClaimRevoked(string did, uint256 claimId);
-    event ReportFiled(uint256 reportId, string didSubject, address business);
-    event ReportResolved(uint256 reportId);
-    event BusinessAuthorized(address business);
-    event RegulatorAuthorized(address regulator);
-    event VerifierAuthorized(address verifier);
-    
     constructor() ERC721("Decentralized Identity", "DID") payable {
         // по умолчанию админ тот кто задеплоил контракт
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
     }
     
-    // Функции для управления DID и верифицируемыми заявлениями
-    
-    /**
-     * @dev Создание нового DID для пользователя
-     * @param didString Строка DID, соответствующая стандарту W3C DID
-     * @return Успешно ли создан DID
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function createDID(string memory didString) public returns (bool) {
         require(bytes(_addressToDID[msg.sender]).length == 0, "Address already has DID");
         require(bytes(_didDocuments[didString].did).length == 0, "DID already exists");
@@ -112,15 +97,7 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
         return true;
     }
     
-    /**
-     * @dev Добавление верифицированного заявления к DID
-     * @param did DID пользователя
-     * @param claimType Тип заявления
-     * @param claimValue Зашифрованное значение заявления
-     * @param proofValue Зашифрованное доказательство, доступное регулятору
-     * @param expirationDate Срок действия заявления
-     * @return ID созданного заявления
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function addVerifiableClaim(
         string memory did,
         string memory claimType,
@@ -149,11 +126,7 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
         return claimId;
     }
     
-    /**
-     * @dev Отзыв верифицированного заявления
-     * @param did DID пользователя
-     * @param claimId ID заявления для отзыва
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function revokeVerifiableClaim(string memory did, uint256 claimId) public {
         require(bytes(_didDocuments[did].did).length > 0, "DID does not exist");
         require(_didDocuments[did].claims[claimId].isValid, "Claim not valid or doesn't exist");
@@ -168,12 +141,7 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
         emit ClaimRevoked(did, claimId);
     }
     
-    /**
-     * @dev Проверка наличия действительного заявления определенного типа
-     * @param did DID пользователя
-     * @param claimType Тип заявления для проверки
-     * @return Наличие действительного заявления указанного типа
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function hasValidClaim(string memory did, string memory claimType) public view returns (bool) {
         if(bytes(_didDocuments[did].did).length == 0) return false;
         if(!_didDocuments[did].isActive) return false;
@@ -193,13 +161,7 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
         return false;
     }
     
-    /**
-     * @dev Поддержка Zero-Knowledge Proof для проверки заявлений без раскрытия данных
-     * @param did DID пользователя
-     * @param claimType Тип заявления
-     * @param zkProof Доказательство, подтверждающее соответствие требованию
-     * @return Результат проверки
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function verifyZKP(string memory did, string memory claimType, bytes memory zkProof) public onlyRole(BUSINESS_ROLE) returns (bool) {
         // Здесь должен быть код для проверки ZKP
         // В реальной имплементации это было бы сложнее и использовало бы внешние библиотеки для ZKP
@@ -211,15 +173,7 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
         return _zkVerifications[proofHash];
     }
     
-    // Функции для управления подозрительной активностью
-    
-    /**
-     * @dev Бизнес создает отчет о подозрительной активности
-     * @param didSubject DID подозреваемого пользователя
-     * @param reportType Тип отчета
-     * @param encryptedDetails Зашифрованные детали, которые может прочитать только регулятор
-     * @return ID созданного отчета
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function fileReport(
         string memory didSubject,
         string memory reportType,
@@ -243,11 +197,7 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
         return reportId;
     }
     
-    /**
-     * @dev Регулятор обрабатывает отчет о подозрительной активности
-     * @param reportId ID отчета
-     * @param isResolved Статус разрешения
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function resolveReport(uint256 reportId, bool isResolved) public onlyRole(REGULATOR_ROLE) {
         require(_reports[reportId].id == reportId, "Report does not exist");
         
@@ -256,12 +206,7 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
         emit ReportResolved(reportId);
     }
     
-    /**
-     * @dev Регулятор получает доступ к зашифрованным данным пользователя
-     * @param did DID пользователя
-     * @param claimId ID заявления
-     * @return Зашифрованное доказательство
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function getProofForRegulator(string memory did, uint256 claimId) public view onlyRole(REGULATOR_ROLE) returns (bytes memory) {
         require(bytes(_didDocuments[did].did).length > 0, "DID does not exist");
         require(_didDocuments[did].claims[claimId].id == claimId, "Claim does not exist");
@@ -269,10 +214,7 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
         return _didDocuments[did].claims[claimId].proofValue;
     }
     
-    /**
-     * @dev Получение деталей отчета (только для регулятора)
-     * @param reportId ID отчета
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function getReportDetails(uint256 reportId) public view onlyRole(REGULATOR_ROLE) returns (
         string memory didSubject,
         address reportingBusiness,
@@ -294,42 +236,25 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
         );
     }
     
-    // Функции для управления ролями
-    
-    /**
-     * @dev Добавление нового регулятора
-     * @param regulator Адрес регулятора
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function addRegulator(address regulator) public onlyRole(DEFAULT_ADMIN_ROLE) {
         grantRole(REGULATOR_ROLE, regulator);
         emit RegulatorAuthorized(regulator);
     }
     
-    /**
-     * @dev Добавление нового бизнеса
-     * @param business Адрес бизнеса
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function addBusiness(address business) public onlyRole(DEFAULT_ADMIN_ROLE) {
         grantRole(BUSINESS_ROLE, business);
         emit BusinessAuthorized(business);
     }
     
-    /**
-     * @dev Добавление нового верификатора (выдающего заявления)
-     * @param verifier Адрес верификатора
-     */
+   /// @inheritdoc IDIDIdentitySystem
     function addVerifier(address verifier) public onlyRole(DEFAULT_ADMIN_ROLE) {
         grantRole(VERIFIER_ROLE, verifier);
         emit VerifierAuthorized(verifier);
     }
     
-    // Вспомогательные функции
-    
-    /**
-     * @dev Генерирует URI токена
-     * @param did DID пользователя
-     * @param tokenId ID токена
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function _generateTokenURI(string memory did, uint256 tokenId) private pure returns (string memory) {
         bytes memory metadata = abi.encodePacked(
             '{',
@@ -347,11 +272,7 @@ contract DIDIdentitySystem is ERC721URIStorage, AccessControl {
         );
     }
     
-    /**
-     * @dev Возвращает DID, связанный с адресом
-     * @param addr Адрес пользователя
-     * @return DID пользователя
-     */
+    /// @inheritdoc IDIDIdentitySystem
     function getDIDByAddress(address addr) public view returns (string memory) {
         return _addressToDID[addr];
     }
