@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.29;
+pragma solidity ^0.8.20;
 
 import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import {Counters} from "@openzeppelin/contracts/utils/Counters.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
 import "./IDIDIdentitySystem.sol";
@@ -16,7 +15,6 @@ import "./IDIDIdentitySystem.sol";
  * пользователями, бизнесами и регуляторами.
  */
 contract DIDIdentitySystem is IDIDIdentitySystem, ERC721URIStorage, AccessControl {
-    using Counters for Counters.Counter;
     using Strings for uint256;
 
     // Роли для контроля доступа
@@ -25,10 +23,13 @@ contract DIDIdentitySystem is IDIDIdentitySystem, ERC721URIStorage, AccessContro
     bytes32 public constant VERIFIER_ROLE = keccak256("VERIFIER_ROLE");
     
     // Счетчик для ID верифицируемых заявлений
-    Counters.Counter private _claimIds;
+    uint256 private _claimIds;
     
     // Счетчик для NFT идентификаторов
-    Counters.Counter private _tokenIds;
+    uint256 private _tokenIds;
+    
+    // Счетчик для отчетов
+    uint256 private _reportIds;
     
     // Хранение DID документов и верифицируемых заявлений
     struct DIDDocument {
@@ -65,7 +66,6 @@ contract DIDIdentitySystem is IDIDIdentitySystem, ERC721URIStorage, AccessContro
     
     // Учет отчетов о подозрительной активности
     mapping(uint256 => SuspiciousActivityReport) private _reports;
-    Counters.Counter private _reportIds;
     
     // Временное хранение заявлений для поддержки ZKP (Zero-Knowledge Proofs)
     mapping(bytes32 => bool) private _zkVerifications;
@@ -85,8 +85,8 @@ contract DIDIdentitySystem is IDIDIdentitySystem, ERC721URIStorage, AccessContro
         _didDocuments[didString].isActive = true;
         
         // Создаем NFT-представление DID
-        uint256 newTokenId = _tokenIds.current();
-        _tokenIds.increment();
+        uint256 newTokenId = _tokenIds;
+        _tokenIds++;
         _safeMint(msg.sender, newTokenId);
         
         // Генерируем метаданные NFT с DID
@@ -108,8 +108,8 @@ contract DIDIdentitySystem is IDIDIdentitySystem, ERC721URIStorage, AccessContro
         require(bytes(_didDocuments[did].did).length > 0, "DID does not exist");
         require(_didDocuments[did].isActive, "DID is not active");
         
-        uint256 claimId = _claimIds.current();
-        _claimIds.increment();
+        uint256 claimId = _claimIds;
+        _claimIds++;
         
         VerifiableClaim storage newClaim = _didDocuments[did].claims[claimId];
         newClaim.id = claimId;
@@ -181,8 +181,8 @@ contract DIDIdentitySystem is IDIDIdentitySystem, ERC721URIStorage, AccessContro
     ) public onlyRole(BUSINESS_ROLE) returns (uint256) {
         require(bytes(_didDocuments[didSubject].did).length > 0, "DID does not exist");
         
-        uint256 reportId = _reportIds.current();
-        _reportIds.increment();
+        uint256 reportId = _reportIds;
+        _reportIds++;
         
         SuspiciousActivityReport storage newReport = _reports[reportId];
         newReport.id = reportId;
@@ -254,7 +254,6 @@ contract DIDIdentitySystem is IDIDIdentitySystem, ERC721URIStorage, AccessContro
         emit VerifierAuthorized(verifier);
     }
     
-    /// @inheritdoc IDIDIdentitySystem
     function _generateTokenURI(string memory did, uint256 tokenId) private pure returns (string memory) {
         bytes memory metadata = abi.encodePacked(
             '{',

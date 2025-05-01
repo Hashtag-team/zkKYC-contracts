@@ -88,6 +88,16 @@ interface IDIDIdentitySystem {
      * @return DID пользователя
      */
     function getDIDByAddress(address addr) external view returns (string memory);
+    
+    /**
+     * @notice Получение DID по адресу пользователя
+     * @param did DID пользователя
+     * @param claimId ID NFT юзера
+     * @return proofValue Значение для запрашиваемого пруфа
+     */
+    function getProofForRegulator(string memory did, uint256 claimId) external view returns (bytes memory);
+
+    
 
     // ------------------------------------------------------------------------
     // Verifiable Claims Functions
